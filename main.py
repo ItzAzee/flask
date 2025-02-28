@@ -8,26 +8,6 @@ def index1():
     return "Миссия Колонизация Марса"
 
 
-@app.route('/index')
-def index():
-    return "И на Марсе будут яблони цвести!"
-
-
-@app.route('/promotion')
-def index3():
-    strr = """Человечество вырастает из детства.
-
-Человечеству мала одна планета.
-
-Мы сделаем обитаемыми безжизненные пока планеты.
-
-И начнем с Марса!
-
-Присоединяйся!"""
-    countdown_list = [str(x) for x in strr.split("\n") if x != '']
-    return '</br>'.join(countdown_list)
-
-
 @app.route('/image_mars')
 def return_sample_page():
     return f"""<!doctype html>
