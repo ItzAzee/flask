@@ -8,8 +8,8 @@ def index1():
     return "Миссия Колонизация Марса"
 
 
-@app.route('/promotion_image')
-def return_sample_page():
+@app.route('/choice/<planet_name>')
+def return_sample_page(planet_name):
     return f"""<!doctype html>
                 <html lang="en">
                   <head>
@@ -20,16 +20,12 @@ def return_sample_page():
                     <title>Привет, Марс!</title>
                   </head>
                   <body>
-                    <h1>Жди нас, Марс!</h1>
-                    <img src="{url_for('static', filename='img/MARS.png')}" 
-           alt="здесь должна была быть картинка, но не нашлась">
-                    <div class="alert alert-dark" role="alert">
-                        Человечество вырастает из детства.
-                    </div>
-                    <div class="alert alert-success" role="alert"> Человечеству мала одна планета. </div>
-                    <div class="alert alert-secondary" role="alert"> Мы сделаем обитаемыми безжизненные пока планеты. </div>
-                    <div class="alert alert-warning" role="alert"> И начнем с Марса! </div>
-                    <div class="alert alert-danger" role="alert"> Присоединяйся! </div>
+                    <h1>Моё предложение: {planet_name}</h1>
+                    <h2>Эта планета<h2>
+                    <div class="alert alert-success" role="alert"> На ней много необходимых ресурсов </div>
+                    <div class="alert alert-dark" role="alert"> На ней есть вода и атмосфера </div>
+                    <div class="alert alert-warning" role="alert"> На ней есть магнитное поле </div>
+                    <div class="alert alert-danger" role="alert"> Наконец, она просто красива! </div>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
                   </body>
                 </html>"""
