@@ -2,19 +2,24 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+params = {'title': 'title', 'surname': 'surname', 'name': 'name', 'education': 'education', 'sex': 'sex',
+          'motivation': 'motivation', 'profession': 'profession', 'ready': 'ready'}
+
+
 @app.route('/<word>')
 @app.route('/index/<word>')
 def index(word):
     return render_template('base.html', title=word)
 
 
-@app.route('/training/<prof>')
-def training(prof):
-    return render_template('training.html', prof=prof)
+@app.route('/answer')
+def answer():
+    return render_template('auto_answer.html', **params)
 
-@app.route('/list_prof/<list>')
-def list_prof(list):
-    return render_template('list_prof.html', param=list)
+
+@app.route('/auto_answer')
+def auto_answer():
+    return render_template('auto_answer.html', **params)
 
 
 if __name__ == '__main__':
