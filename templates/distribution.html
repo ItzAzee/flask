@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Список астронавтов:</h2>
+    <ul>
+        {% for astronaut in astronauts %}
+            <li>
+                {% if loop.first %}
+                    {{ astronaut }} - Каюта №{{ loop.index }} - Капитан корабля
+                {% else %}
+                     {{ astronaut }} - Каюта №{{ loop.index }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
